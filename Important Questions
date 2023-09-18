@@ -1,0 +1,6 @@
+Questions and answers
+
+
+1. Removing subjects or headings from csv files using python 
+ans- df = pd.read_csv('Algerian_forest_fires_dataset_UPDATE.csv', skiprows=1)
+     please set skip rows to no of skip rows that your dataset requires

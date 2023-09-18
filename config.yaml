@@ -1,0 +1,13 @@
+data_ingestion:
+     url: 'https://archive.ics.uci.edu/static/public/547/algerian+forest+fires+dataset.zip'
+
+data_transformation:
+     z_threshold: 3
+     pca_estimator: 10
+
+model_selection:
+      model_container_dir_reg : 'MODEL_CONTAINER_REGRESSION'
+      model_container_dir_classi: 'MODEL_CONTAINER_CLASSIFICATION'
+      fitting_score: 0.25
+
+

@@ -1,0 +1,28 @@
+column names:
+      names : ['day','month','year','Temperature', ' RH', ' Ws','Rain ' ,'FFMC','DMC','DC','ISI','BUI','FWI','Classes  ' ]
+column float dtypes:
+      names : ['day','month','year','Temperature', ' RH', ' Ws','Rain ' ,'FFMC','DMC','DC','ISI','BUI','FWI']
+
+
+
+
+column object dtypes:
+   names : ['Classes  ']
+
+
+day:   
+    month: float
+    year: float
+    Temperature: float
+    RH: float
+    Ws: float
+    Rain: float
+    FFMC: float
+    DMC: float
+    DC: float
+    ISI: float
+    BUI: float
+    FWI: float    
+    
+    
+
