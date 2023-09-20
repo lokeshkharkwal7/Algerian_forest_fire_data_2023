@@ -219,12 +219,6 @@ class data_ingestion_component:
         return df_no_outliers_
 
 
-
-
-
-
- 
-
     def reg_classi_splitting_data_saving_to_dir(self):
 
         try:
@@ -357,14 +351,14 @@ class data_ingestion_component:
         self.downloading_files()
         self.csv_conversion()
         #self.splitting_data_saving_to_dir()
-        print (self.reg_classi_splitting_data_saving_to_dir())
+        return (self.reg_classi_splitting_data_saving_to_dir())
 
-
+'''
 
 obj = data_ingestion_component(download_url)
 obj.initiate_data_ingestion()
 
-  
+ ''' 
 
  
 

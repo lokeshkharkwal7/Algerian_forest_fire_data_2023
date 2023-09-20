@@ -136,6 +136,16 @@ class model_selection_config:
     def get_fitting_score(self):
         return FITTING_SCORE
 
+class model_pusher_config:
+    def __init__(self):
+        pass
+    def get_reg_best_model_dir(self):
+        return REG_BEST_MODEL_DIR
+    def get_classi_best_model_dir(self):
+        return CLASSI_BEST_MODEL_DIR
+
+    
+
 
 
 

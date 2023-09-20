@@ -1,0 +1,301 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Text File Content</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 28px; /* Increased font size */
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: bold; /* Make the heading bold */
+        }
+
+        pre {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            line-height: 1.5;
+            overflow-x: auto;
+            max-width: 65%;
+        }
+
+        /* Updated sidebar styles */
+        .sidebar {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            width: 200px;
+            position: fixed;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            left: 0; /* Move the sidebar to the left */
+            top: 0;
+        }
+
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 5px 0;
+        }
+
+        .sidebar a:hover {
+            background-color: #007BFF;
+        }
+
+        @media (max-width: 768px) {
+            /* Adjust styles for smaller screens */
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                display: block;
+            }
+
+            .sidebar a {
+                display: block;
+            }
+
+            /* Center content horizontally on smaller screens */
+            body {
+                align-items: center;
+            }
+
+            h1, pre {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+    <!-- This one is for getting Schema of our  -->
+
+    <h1> </h1>
+    <h1> </h1>
+     
+
+<button id="project_input" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+">Project Input</button>
+
+<script>
+document.getElementById('project_input').addEventListener('click', function() {
+    window.location.href = "{{ url_for('project_input') }}";
+});
+</script>
+
+
+<!-- This one is for getting Artifact contents ( Pandas Profiling ) -->
+
+<button id="Artifacts" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+">Artifact Directory</button>
+
+<script>
+document.getElementById('Artifacts').addEventListener('click', function() {
+    window.location.href = "{{ url_for('opening_artifact') }}";
+});
+</script>
+
+
+
+<button id="DataAnalysis" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+">Raw Data Analysis</button>
+
+<script>
+document.getElementById('DataAnalysis').addEventListener('click', function() {
+    window.location.href = "{{ url_for('data_analysis_report') }}";
+});
+</script>
+
+<button id="DataAnalysisTransformed" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+">Transformed Data Analysis</button>
+
+<script>
+document.getElementById('DataAnalysisTransformed').addEventListener('click', function() {
+    window.location.href = "{{ url_for('data_analysis_transformed_report') }}";
+});
+</script>
+
+
+
+    <button id="DatadriftReport" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+    ">Data Drift Report</button>
+
+    <script>
+        document.getElementById('DatadriftReport').addEventListener('click', function() {
+            window.location.href = "{{ url_for('data_drift_report') }}";
+        });
+    </script>
+
+
+<!-- This one is for Data Analysis ( Pandas Profiling ) -->
+
+
+
+
+<!-- This one is for Transformed Data Analysis ( Pandas Profiling ) -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- This one is for getting best_model contents  -->
+
+<button id="best_model_info" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+">Best Selected Model</button>
+
+<script>
+document.getElementById('best_model_info').addEventListener('click', function() {
+    window.location.href = "{{ url_for('display_text_file') }}";
+});
+</script>
+
+
+
+<!-- This one is for getting all the information of the models that were used -->
+
+<button id="all_model_info" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+">All Models Used</button>
+
+<script>
+document.getElementById('all_model_info').addEventListener('click', function() {
+    window.location.href = "{{ url_for('models_used') }}";
+});
+</script>
+
+
+<!-- This one is for getting all the information of the configuration -->
+
+<button id="configuration" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+">Project Configuration</button>
+
+<script>
+document.getElementById('configuration').addEventListener('click', function() {
+    window.location.href = "{{ url_for('configuration') }}";
+});
+</script>
+
+
+<!-- This one is for getting Schema of our Dataset -->
+
+<button id="schema" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+">Project Schema</button>
+
+<script>
+document.getElementById('schema').addEventListener('click', function() {
+    window.location.href = "{{ url_for('get_schema') }}";
+});
+</script>
+
+
+
+<!-- This one is for getting logs of project of our  -->
+
+<button id="project_log" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+">Project Logs</button>
+
+<script>
+document.getElementById('project_log').addEventListener('click', function() {
+    window.location.href = "{{ url_for('show_logs') }}";
+});
+</script>
+
+
+<a href="https://ineuron.ai/" target="_blank">I Neurone (My Course)</a>
+
+</div>
+
+
+
+
+
+
+
+
+
+    
+
+    <style>
+        /* CSS for the hover effect on the button */
+        #DatadriftReport:hover {
+            background-color: #007BFF !important; /* Change the background color on hover */
+        }
+        #DataAnalysis:hover {
+            background-color: #007BFF !important; /* Change the background color on hover */
+        }
+        #DataAnalysisTransformed:hover {
+            background-color: #007BFF !important; /* Change the background color on hover */
+        }
+
+        #project_input:hover {
+            background-color: #007BFF !important; /* Change the background color on hover */
+        }
+
+        #project_log:hover {
+            background-color: #007BFF !important; /* Change the background color on hover */
+        }
+
+
+
+        #all_model_info:hover {
+            background-color: #007BFF !important; /* Change the background color on hover */
+        }
+
+        #best_model_info:hover {
+            background-color: #007BFF !important; /* Change the background color on hover */
+        }
+
+        #Artifacts:hover {
+            background-color: #007BFF !important; /* Change the background color on hover */
+        }
+
+        #schema:hover {
+            background-color: #007BFF !important; /* Change the background color on hover */
+        }
+
+    
+        #configuration:hover {
+            background-color: #007BFF !important; /* Change the background color on hover */
+        }
+    </style>
+
+
+
+
+
+
+
+    <h1><strong> Pipeline </strong></h1>
+    <h1><strong> Pipeline Log  Reports</strong></h1>
+    <pre>{{ text_content }}</pre>
+</body>
+</html>

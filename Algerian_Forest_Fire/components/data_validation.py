@@ -73,9 +73,7 @@ class data_validation:
                 report = Report(metrics=[DataDriftPreset(), ])
                 X_train = pd.read_csv(self.x_train)
                 X_test = pd.read_csv(self.x_test)
-                print(X_train)
-                print(X_test)
-
+ 
                 report.run(reference_data=X_train, current_data=X_test)
                 report.save_html('Data_Drift_Report.html')
                 
@@ -104,17 +102,24 @@ class data_validation:
 
                 destination_evidently_report_loc = os.path.join(time_stamp_dir_loc, "Data_Drift_report")
                 os.makedirs(destination_evidently_report_loc, exist_ok = True)
-                shutil.move(source_path,destination_evidently_report_loc)
+                shutil.copy(source_path,destination_evidently_report_loc)
+
+                # For Front end 
+                template_loc = os.path.join(root_dir, 'Templates', 'Data_drift_report')
+                shutil.rmtree(template_loc)
+                os.makedirs(template_loc , exist_ok=True)
+                shutil.move(source_path,template_loc)
                 return Validation_status
 
     def generate_profile_report_raw_data(self):
             X_train = pd.read_csv(self.x_train)
 
             profile_report_location_for_html = os.path.join(root_dir,'Templates','PandasProfiling_before')
-            os.makedirs(profile_report_location_for_html , exist_ok=True) #imp changes required
+            shutil.rmtree(profile_report_location_for_html)
+            os.makedirs(profile_report_location_for_html , exist_ok=True)  
 
             
-            destination_profile_report_dir_loc = os.path.join(time_stamp_dir_loc , "Data_Analysis_report")
+            destination_profile_report_dir_loc = os.path.join(time_stamp_dir_loc , "Data_Analysis_report_(Raw Data)")
             os.makedirs(destination_profile_report_dir_loc, exist_ok = True)
 
             # Initiating profile report 
@@ -128,8 +133,9 @@ class data_validation:
             profile.to_file(profile_report_location)
 
             #moving this file to the new location inside template for html access
+            html_file_location = os.path.join(profile_report_location_for_html, 'Pandas_profiling.html')
 
-            shutil.copy(profile_report_location,profile_report_location_for_html)
+            profile.to_file(html_file_location)
             return profile_report_location
 
     def initiate_data_validation(self):
@@ -142,7 +148,7 @@ class data_validation:
 
 
 
-  
+'''
 
 trainLoc =  'C:\\\\Users\\\\Lokesh\\\\Desktop\\\\Ineurone\\\\Project\\\\Algerian Forest Fire Full\\\\artifact\\\\2023-16-09_17-35-04\\\\reg_train_test_data\\\\reg_train_data\\\\train_input.csv' 
 testloc = 'C:\\\\Users\\\\Lokesh\\\\Desktop\\\\Ineurone\\\\Project\\\\Algerian Forest Fire Full\\\\artifact\\\\2023-16-09_17-35-04\\\\reg_train_test_data\\\\reg_test_data\\\\test_input.csv' 
@@ -152,4 +158,4 @@ obj = data_validation(trainLoc,testloc,complete_csv)
 print(obj.initiate_data_validation()
 )       
 
-  
+'''  

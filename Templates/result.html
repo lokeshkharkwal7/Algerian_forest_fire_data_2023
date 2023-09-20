@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px; /* Increase padding for larger container */
+            border-radius: 16px; /* Increase border radius for rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: scaleUp 0.5s ease; /* Add scaling animation */
+            width: 500px; /* Increase the container width */
+            height: 300px; /* Increase the container height */
+            font-size: 24px; /* Increase font size */
+        }
+
+        @keyframes scaleUp {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            font-size: 36px; /* Increase font size for headings */
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 34px; /* Increase font size for paragraphs */
+            color: #007BFF;
+            margin: 0;
+        }
+
+        a {
+            font-size: 24px; /* Increase font size for links */
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .sidebar {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            width: 200px;
+            position: fixed;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            left: 0;
+            top: 0;
+        }
+
+        .sidebar a {
+            font-size: 24px; /* Increase font size for sidebar links */
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 5px 0;
+        }
+
+        .sidebar a:hover {
+            background-color: #007BFF;
+        }
+
+        @media (max-width: 768px) {
+            /* Adjust styles for smaller screens */
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                display: block;
+            }
+
+            .sidebar a {
+                display: block;
+            }
+
+            /* Center content horizontally on smaller screens */
+            body {
+                align-items: center;
+            }
+
+            h1, pre {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Result</h1>
+        <p>{{ prediction_text }}</p>
+        <a href="/">Back to Form</a>
+    </div>
+</body>
+</html>

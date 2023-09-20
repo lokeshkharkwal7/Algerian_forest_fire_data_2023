@@ -20,7 +20,8 @@ data_transformation_entity = namedtuple('data_transformation_entity', [ 'reg_tra
 'X_reg_train_trans','y_reg_train_trans','X_reg_test_trans','y_reg_test_trans','X_classi_train_trans','y_classi_train_trans'
 ,'X_classi_test_trans','y_classi_test_trans'])
  
- # Model Selection entitu
+ # Model Selection entity
 
-model_selection_entity = namedtuple("model_selection_entity", ['model_name','respective_parameters',
- 'score_training','fitting_status','module_address','pickle_storage_loc'])
+model_selection_entity = namedtuple("model_selection_entity", ['reg_model_name','reg_respective_parameters',
+ 'reg_score_training','reg_fitting_status','reg_module_address','reg_pickle_storage_loc','classi_model_name','classi_respective_parameters',
+ 'classi_score_training','classi_fitting_status','classi_module_address','classi_pickle_storage_loc'])

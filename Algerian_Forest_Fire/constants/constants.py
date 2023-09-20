@@ -23,8 +23,10 @@ MODEL_CONTAINER_DIR_REG = config_data['model_selection']['model_container_dir_re
 FITTING_SCORE = config_data['model_selection']['fitting_score']
 MODEL_CONTAINER_DIR_CLASSI = config_data['model_selection']['model_container_dir_classi']
 
-print(MODEL_CONTAINER_DIR_CLASSI)
-print(MODEL_CONTAINER_DIR_REG)
+REG_BEST_MODEL_DIR = config_data['model_pusher']['reg_model_dir']
+CLASSI_BEST_MODEL_DIR = config_data['model_pusher']['classi_model_dir']
+
+
 
 
 

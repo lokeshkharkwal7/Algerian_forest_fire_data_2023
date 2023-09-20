@@ -18,6 +18,8 @@ from utility.util import *
 import numpy as np
 from scipy import stats
 from sklearn.decomposition import PCA
+from pandas_profiling import ProfileReport
+
 import pickle
 import matplotlib.pyplot as plt
 # removing unwanted elements from the data frame
@@ -54,14 +56,16 @@ class data_transformation:
 
         dataframes = {}
         for key, items in df_loc.items():
-            dataframes[key]=pd.read_csv(items)
+            df = pd.read_csv(items)
+            df.drop(columns = ['Unnamed: 0'], inplace = True)
+            dataframes[key]=df
         return dataframes
 
 
  
 
 
-    def dimensity_reduction(self):
+    def initiate_transformation(self):
         pca_obj=[]
         z_scale_obj = []
 
@@ -188,6 +192,22 @@ class data_transformation:
         z_obj_reg_loc = os.path.join(z_trans_dir,z_scale_obj[0])
         z_obj_classi_loc = os.path.join(z_trans_dir,z_scale_obj[1])
 
+        # For Front End
+
+        # Using pandas profiling to save the transformed data report 
+        report_obj = ProfileReport(transformed_train_regression_df)
+        html_path = os.path.join(root_dir,'Templates','Transformed_Data_Analysis')
+        os.makedirs(html_path, exist_ok=True)
+        file_loc = os.path.join(html_path,'Pandas_Profile.html')
+        report_obj.to_file(file_loc)
+        artifact_trans_file_path = os.path.join(time_stamp_dir_loc,'Transformed_Data_Analysis')
+        os.makedirs(artifact_trans_file_path,exist_ok=True)
+        shutil.copy(file_loc , artifact_trans_file_path)
+ 
+         
+
+
+
         transformation_output = data_transformation_entity(reg_trans_obj = pca_obj_reg_loc, 
         classi_trans_obj =pca_obj_classi_loc  , 
         z_reg_obj=z_obj_reg_loc ,
@@ -204,8 +224,8 @@ class data_transformation:
         return transformation_output
 
         
-
-
+ 
+'''
 reg_train_input_loc='C:\\\\Users\\\\Lokesh\\\\Desktop\\\\Ineurone\\\\Project\\\\Algerian Forest Fire Full\\\\artifact\\\\2023-16-09_22-37-21\\\\reg_train_test_data\\\\reg_train_data\\\\train_input.csv'
 
 reg_train_target_loc='C:\\\\Users\\\\Lokesh\\\\Desktop\\\\Ineurone\\\\Project\\\\Algerian Forest Fire Full\\\\artifact\\\\2023-16-09_22-37-21\\\\reg_train_test_data\\\\reg_train_data\\\\train_target.csv'
@@ -226,15 +246,12 @@ classi_test_target_loc='C:\\\\Users\\\\Lokesh\\\\Desktop\\\\Ineurone\\\\Project\
 obj = data_transformation(reg_train_input_loc,  reg_train_target_loc, reg_test_input_loc, reg_test_target_loc,classi_train_input_loc, classi_train_target_loc, classi_test_input_loc,  classi_test_target_loc  )
 
 
-print(obj.dimensity_reduction())
+print(obj.dimensity_reduction() )
+'''
+ 
 
-
-
-
-
-        
-
-    
+ 
+  
                  
 
 

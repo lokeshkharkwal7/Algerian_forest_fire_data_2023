@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Explorer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 800px; /* Increased webpage width */
+            margin: 0 auto;
+        }
+
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        .directory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Grid with columns that adapt to available space */
+            gap: 10px;
+        }
+
+        .directory-item {
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .folder-icon {
+            font-size: 48px; /* Increased icon size */
+            margin-bottom: 10px;
+            color: blue; /* Blue icon color */
+        }
+
+        .csv-folder-icon {
+            font-size: 48px; /* Increased icon size */
+            margin-bottom: 10px;
+            color: green; /* Green icon color for .csv folders */
+        }
+
+        .file-icon {
+            font-size: 40px; /* Increased icon size */
+            margin-bottom: 10px;
+            color: blue; /* Blue icon color */
+        }
+
+        /* Remove underline from folder and file names */
+        .folder-name, .file-name {
+            text-decoration: none;
+            color: #333;
+        }
+
+
+                /* Updated sidebar styles */
+                .sidebar {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            width: 200px;
+            position: fixed;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            left: 0; /* Move the sidebar to the left */
+            top: 0;
+        }
+
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 5px 0;
+        }
+
+        .sidebar a:hover {
+            background-color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <!-- This one is for getting Schema of our  -->
+
+        <h1> </h1>
+        <h1> </h1>
+         
+
+<button id="project_input" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+">Project Input</button>
+
+<script>
+    document.getElementById('project_input').addEventListener('click', function() {
+        window.location.href = "{{ url_for('project_input') }}";
+    });
+</script>
+
+
+<!-- This one is for getting Artifact contents ( Pandas Profiling ) -->
+
+<button id="Artifacts" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+">Artifact Directory</button>
+
+<script>
+    document.getElementById('Artifacts').addEventListener('click', function() {
+        window.location.href = "{{ url_for('opening_artifact') }}";
+    });
+</script>
+
+
+
+<button id="DataAnalysis" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+">Raw Data Analysis</button>
+
+<script>
+    document.getElementById('DataAnalysis').addEventListener('click', function() {
+        window.location.href = "{{ url_for('data_analysis_report') }}";
+    });
+</script>
+
+<button id="DataAnalysisTransformed" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+">Transformed Data Analysis</button>
+
+<script>
+    document.getElementById('DataAnalysisTransformed').addEventListener('click', function() {
+        window.location.href = "{{ url_for('data_analysis_transformed_report') }}";
+    });
+</script>
+
+
+ 
+        <button id="DatadriftReport" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+        ">Data Drift Report</button>
+    
+        <script>
+            document.getElementById('DatadriftReport').addEventListener('click', function() {
+                window.location.href = "{{ url_for('data_drift_report') }}";
+            });
+        </script>
+
+
+<!-- This one is for Data Analysis ( Pandas Profiling ) -->
+
+
+
+
+<!-- This one is for Transformed Data Analysis ( Pandas Profiling ) -->
+
+
+
+
+
+
+
+
+ 
+
+
+ <!-- This one is for getting best_model contents  -->
+
+ <button id="best_model_info" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+">Best Selected Model</button>
+
+<script>
+    document.getElementById('best_model_info').addEventListener('click', function() {
+        window.location.href = "{{ url_for('display_text_file') }}";
+    });
+</script>
+
+
+
+ <!-- This one is for getting all the information of the models that were used -->
+
+ <button id="all_model_info" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+">All Models Used</button>
+
+<script>
+    document.getElementById('all_model_info').addEventListener('click', function() {
+        window.location.href = "{{ url_for('models_used') }}";
+    });
+</script>
+
+
+<!-- This one is for getting all the information of the configuration -->
+
+<button id="configuration" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+">Project Configuration</button>
+
+<script>
+    document.getElementById('configuration').addEventListener('click', function() {
+        window.location.href = "{{ url_for('configuration') }}";
+    });
+</script>
+
+
+<!-- This one is for getting Schema of our Dataset -->
+
+<button id="schema" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+">Project Schema</button>
+
+<script>
+    document.getElementById('schema').addEventListener('click', function() {
+        window.location.href = "{{ url_for('get_schema') }}";
+    });
+</script>
+
+
+
+<!-- This one is for getting logs of project of our  -->
+
+<button id="project_log" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+">Project Logs</button>
+
+<script>
+    document.getElementById('project_log').addEventListener('click', function() {
+        window.location.href = "{{ url_for('show_logs') }}";
+    });
+</script>
+
+
+<a href="https://ineuron.ai/" target="_blank">I Neurone (My Course)</a>
+ 
+</div>
+
+
+
+
+ 
+
+
+
+
+        
+
+        <style>
+            /* CSS for the hover effect on the button */
+            #DatadriftReport:hover {
+                background-color: #007BFF !important; /* Change the background color on hover */
+            }
+            #DataAnalysis:hover {
+                background-color: #007BFF !important; /* Change the background color on hover */
+            }
+            #DataAnalysisTransformed:hover {
+                background-color: #007BFF !important; /* Change the background color on hover */
+            }
+
+            #project_input:hover {
+                background-color: #007BFF !important; /* Change the background color on hover */
+            }
+
+            #project_log:hover {
+                background-color: #007BFF !important; /* Change the background color on hover */
+            }
+
+
+
+            #all_model_info:hover {
+                background-color: #007BFF !important; /* Change the background color on hover */
+            }
+
+            #best_model_info:hover {
+                background-color: #007BFF !important; /* Change the background color on hover */
+            }
+
+            #Artifacts:hover {
+                background-color: #007BFF !important; /* Change the background color on hover */
+            }
+
+            #schema:hover {
+                background-color: #007BFF !important; /* Change the background color on hover */
+            }
+
+        
+            #configuration:hover {
+                background-color: #007BFF !important; /* Change the background color on hover */
+            }
+        </style>
+
+
+
+
+    <div class="container">
+        <div class="header">
+            File Explorer: {{ directory }}
+        </div>
+        <div class="directory-grid">
+            {% for subdirectory in subdirectories %}
+                <div class="directory-item">
+                    {% if subdirectory.endswith('.csv') %}
+                        <span class="csv-folder-icon">&#128194;</span>
+                    {% else %}
+                        <span class="folder-icon">&#128194;</span>
+                    {% endif %}
+                    <a href="?dir={{ directory }}/{{ subdirectory }}" class="folder-name">{{ subdirectory }}</a>
+                </div>
+            {% endfor %}
+            {% for file in files %}
+                <div class="directory-item">
+                    <span class="file-icon">&#128193;</span>
+                    <a href="{{ url_for('view_file', file_path=directory + '/' + file) }}" class="file-name">{{ file }}</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

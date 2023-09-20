@@ -10,4 +10,9 @@ model_selection:
       model_container_dir_classi: 'MODEL_CONTAINER_CLASSIFICATION'
       fitting_score: 0.25
 
+model_pusher:
+      reg_model_dir: 'REG_BEST_MODEL'
+      classi_model_dir: 'CLASSI_BEST_MODEL'
+
+
 

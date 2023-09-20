@@ -4,11 +4,11 @@ models:
       n_estimators: [100,200]
       max_depth: [10,8]
       #min_samples_split: 2
-      #min_samples_leaf: 1
+      min_samples_leaf: [1,2]
       
   - name: GradientBoostingRegressor
     parameters:
-      #n_estimators: 100
+      n_estimators: [100,200]
       learning_rate: [0.1 , 0.3]
       #max_depth: 3
       #loss: ls
