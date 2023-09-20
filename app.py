@@ -132,7 +132,7 @@ def predict_classification():
 # Data drift report
 @app.route('/data_drift_report')
 def data_drift_report():
-    return render_template('Data_drift_report\Data_Drift_Report.html')
+    return render_template('Data_drift_report/Data_Drift_Report.html')
 
 # for Pandas Profiling before the transformation
 @app.route('/data_analysis_report')
@@ -142,7 +142,7 @@ def data_analysis_report():
 # for Pandas Profiling after the transformation
 @app.route('/data_analysis_transformed_report')
 def data_analysis_transformed_report():
-    return render_template('PandasProfiling_after\Transformed_Pandas_profiling.html')
+    return render_template('Transformed_Data_Analysis/Pandas_Profile.html')
 
 # Creating a file system that contains all the directories containing in the artifact folder
 # Define the root directory you want to list
