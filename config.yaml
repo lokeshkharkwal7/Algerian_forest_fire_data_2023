@@ -3,7 +3,7 @@ data_ingestion:
 
 data_transformation:
      z_threshold: 3
-     pca_estimator: 10
+     pca_estimator: 6
 
 model_selection:
       model_container_dir_reg : 'MODEL_CONTAINER_REGRESSION'

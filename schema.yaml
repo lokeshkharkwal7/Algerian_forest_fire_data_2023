@@ -10,7 +10,7 @@ column object dtypes:
    names : ['Classes  ']
 
 
-day:   
+Overview:   
     month: float
     year: float
     Temperature: float
@@ -22,7 +22,8 @@ day:
     DC: float
     ISI: float
     BUI: float
-    FWI: float    
+    FWI: float
+    Classes: object    
     
     
 

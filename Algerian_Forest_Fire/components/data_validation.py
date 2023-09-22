@@ -30,6 +30,8 @@ class data_validation:
 
     def comparing_features(self):
 
+     try:
+
         # importing the data_ingestion_configuration    
         # comparing the columns present in the ingested data
 
@@ -65,8 +67,13 @@ class data_validation:
                 print(columns_in_Ingested_data)
                 print(columns_schema_file)
 
+     except Exception as e:
+        raise ForestFireException(e,sys) from e
+
 
     def checking_data_drift(self):
+
+        try:
 
                 Validation_status = None
                 logging.info('Successfully changed the Dtypes Checking data drift')
@@ -110,8 +117,14 @@ class data_validation:
                 os.makedirs(template_loc , exist_ok=True)
                 shutil.move(source_path,template_loc)
                 return Validation_status
+        except Exception as e:
+            raise ForestFireException(e,sys) from e
 
     def generate_profile_report_raw_data(self):
+
+        try:
+
+            logging.info('Generating Profile report of the raw data')
             X_train = pd.read_csv(self.x_train)
 
             profile_report_location_for_html = os.path.join(root_dir,'Templates','PandasProfiling_before')
@@ -137,6 +150,10 @@ class data_validation:
 
             profile.to_file(html_file_location)
             return profile_report_location
+            logging.info("Profile report generated successfully")
+
+        except Exception as e:
+            raise ForestFireException(e, sys) from e
 
     def initiate_data_validation(self):
 

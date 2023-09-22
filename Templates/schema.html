@@ -35,7 +35,7 @@
             font-size: 18px;
             line-height: 1.5;
             overflow-x: auto;
-            max-width: 80%;
+            max-width: 60%;
         }
 
         /* Updated sidebar styles */
@@ -150,31 +150,36 @@ document.getElementById('DataAnalysisTransformed').addEventListener('click', fun
     </script>
 
 
-<!-- This one is for Data Analysis ( Pandas Profiling ) -->
+<button id="PCA" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+">PCA</button>
 
-
-
-
-<!-- This one is for Transformed Data Analysis ( Pandas Profiling ) -->
-
-
-
-
-
-
-
-
-
+<script>
+document.getElementById('PCA').addEventListener('click', function() {
+    window.location.href = "{{ url_for('pca') }}";
+});
+</script>
 
 
 <!-- This one is for getting best_model contents  -->
 
-<button id="best_model_info" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
-">Best Selected Model</button>
+<button id="reg_best_model_info_reg" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+">Best Model Regression</button>
 
 <script>
-document.getElementById('best_model_info').addEventListener('click', function() {
-    window.location.href = "{{ url_for('display_text_file') }}";
+document.getElementById('reg_best_model_info_reg').addEventListener('click', function() {
+    window.location.href = "{{ url_for('display_text_file_reg') }}";
+});
+</script>
+
+
+<!-- This one is for getting best_model contents  -->
+
+<button id="classi_best_model_info" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+">Best Model Classification</button>
+
+<script>
+document.getElementById('classi_best_model_info').addEventListener('click', function() {
+    window.location.href = "{{ url_for('display_text_file_classi') }}";
 });
 </script>
 
@@ -182,14 +187,27 @@ document.getElementById('best_model_info').addEventListener('click', function() 
 
 <!-- This one is for getting all the information of the models that were used -->
 
-<button id="all_model_info" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
-">All Models Used</button>
+<button id="all_model_info_reg" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+">All Models Used Regression</button>
 
 <script>
-document.getElementById('all_model_info').addEventListener('click', function() {
-    window.location.href = "{{ url_for('models_used') }}";
+document.getElementById('all_model_info_reg').addEventListener('click', function() {
+    window.location.href = "{{ url_for('reg_models_used') }}";
 });
 </script>
+
+
+<!-- This one is for getting all the information of the models that were used -->
+
+<button id="all_model_info_classi" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+">All Models Used Classification</button>
+
+<script>
+document.getElementById('all_model_info_classi').addEventListener('click', function() {
+    window.location.href = "{{ url_for('classi_models_used') }}";
+});
+</script>
+
 
 
 <!-- This one is for getting all the information of the configuration -->
@@ -229,8 +247,9 @@ document.getElementById('project_log').addEventListener('click', function() {
 </script>
 
 
-<a href="https://ineuron.ai/" target="_blank">I Neurone (My Course)</a>
 
+<a href="https://ineuron.ai/" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+" target="_blank" id="anchor">I Neurone (My Course)</a>
 </div>
 
 
@@ -285,8 +304,31 @@ document.getElementById('project_log').addEventListener('click', function() {
         #configuration:hover {
             background-color: #007BFF !important; /* Change the background color on hover */
         }
-    </style>
 
+        #anchor:hover {
+                background-color: #007BFF !important; /* Change the background color on hover */
+            }
+
+        #PCA:hover {
+                background-color: #007BFF !important; /* Change the background color on hover */
+            }
+
+
+            #all_model_info_classi:hover {
+                background-color: #007BFF !important; /* Change the background color on hover */
+            }
+
+            #all_model_info_reg:hover {
+                background-color: #007BFF !important; /* Change the background color on hover */
+            }
+            #classi_best_model_info:hover {
+                background-color: #007BFF !important; /* Change the background color on hover */
+            }
+            #reg_best_model_info_reg:hover {
+                background-color: #007BFF !important; /* Change the background color on hover */
+            }
+        </style>
+    </style>
 
 
 

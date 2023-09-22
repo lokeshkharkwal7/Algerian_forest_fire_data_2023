@@ -88,54 +88,54 @@
     <div class="sidebar">
 
         <!-- This one is for getting Schema of our  -->
-
+    
         <h1> </h1>
         <h1> </h1>
          
-
-<button id="project_input" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
-">Project Input</button>
-
-<script>
+    
+    <button id="project_input" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+    ">Project Input</button>
+    
+    <script>
     document.getElementById('project_input').addEventListener('click', function() {
         window.location.href = "{{ url_for('project_input') }}";
     });
-</script>
-
-
-<!-- This one is for getting Artifact contents ( Pandas Profiling ) -->
-
-<button id="Artifacts" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
-">Artifact Directory</button>
-
-<script>
+    </script>
+    
+    
+    <!-- This one is for getting Artifact contents ( Pandas Profiling ) -->
+    
+    <button id="Artifacts" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+    ">Artifact Directory</button>
+    
+    <script>
     document.getElementById('Artifacts').addEventListener('click', function() {
         window.location.href = "{{ url_for('opening_artifact') }}";
     });
-</script>
-
-
-
-<button id="DataAnalysis" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
-">Raw Data Analysis</button>
-
-<script>
+    </script>
+    
+    
+    
+    <button id="DataAnalysis" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+    ">Raw Data Analysis</button>
+    
+    <script>
     document.getElementById('DataAnalysis').addEventListener('click', function() {
         window.location.href = "{{ url_for('data_analysis_report') }}";
     });
-</script>
-
-<button id="DataAnalysisTransformed" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
-">Transformed Data Analysis</button>
-
-<script>
+    </script>
+    
+    <button id="DataAnalysisTransformed" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+    ">Transformed Data Analysis</button>
+    
+    <script>
     document.getElementById('DataAnalysisTransformed').addEventListener('click', function() {
         window.location.href = "{{ url_for('data_analysis_transformed_report') }}";
     });
-</script>
-
-
- 
+    </script>
+    
+    
+    
         <button id="DatadriftReport" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
         ">Data Drift Report</button>
     
@@ -144,101 +144,120 @@
                 window.location.href = "{{ url_for('data_drift_report') }}";
             });
         </script>
-
-
-<!-- This one is for Data Analysis ( Pandas Profiling ) -->
-
-
-
-
-<!-- This one is for Transformed Data Analysis ( Pandas Profiling ) -->
-
-
-
-
-
-
-
-
- 
-
-
- <!-- This one is for getting best_model contents  -->
-
- <button id="best_model_info" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
-">Best Selected Model</button>
-
-<script>
-    document.getElementById('best_model_info').addEventListener('click', function() {
-        window.location.href = "{{ url_for('display_text_file') }}";
+    
+    
+    <button id="PCA" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+    ">PCA</button>
+    
+    <script>
+    document.getElementById('PCA').addEventListener('click', function() {
+        window.location.href = "{{ url_for('pca') }}";
     });
-</script>
-
-
-
- <!-- This one is for getting all the information of the models that were used -->
-
- <button id="all_model_info" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
-">All Models Used</button>
-
-<script>
-    document.getElementById('all_model_info').addEventListener('click', function() {
-        window.location.href = "{{ url_for('models_used') }}";
+    </script>
+    
+    
+    <!-- This one is for getting best_model contents  -->
+    
+    <button id="reg_best_model_info_reg" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+    ">Best Model Regression</button>
+    
+    <script>
+    document.getElementById('reg_best_model_info_reg').addEventListener('click', function() {
+        window.location.href = "{{ url_for('display_text_file_reg') }}";
     });
-</script>
-
-
-<!-- This one is for getting all the information of the configuration -->
-
-<button id="configuration" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
-">Project Configuration</button>
-
-<script>
+    </script>
+    
+    
+    <!-- This one is for getting best_model contents  -->
+    
+    <button id="classi_best_model_info" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+    ">Best Model Classification</button>
+    
+    <script>
+    document.getElementById('classi_best_model_info').addEventListener('click', function() {
+        window.location.href = "{{ url_for('display_text_file_classi') }}";
+    });
+    </script>
+    
+    
+    
+    <!-- This one is for getting all the information of the models that were used -->
+    
+    <button id="all_model_info_reg" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+    ">All Models Used Regression</button>
+    
+    <script>
+    document.getElementById('all_model_info_reg').addEventListener('click', function() {
+        window.location.href = "{{ url_for('reg_models_used') }}";
+    });
+    </script>
+    
+    
+    <!-- This one is for getting all the information of the models that were used -->
+    
+    <button id="all_model_info_classi" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+    ">All Models Used Classification</button>
+    
+    <script>
+    document.getElementById('all_model_info_classi').addEventListener('click', function() {
+        window.location.href = "{{ url_for('classi_models_used') }}";
+    });
+    </script>
+    
+    
+    
+    <!-- This one is for getting all the information of the configuration -->
+    
+    <button id="configuration" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+    ">Project Configuration</button>
+    
+    <script>
     document.getElementById('configuration').addEventListener('click', function() {
         window.location.href = "{{ url_for('configuration') }}";
     });
-</script>
-
-
-<!-- This one is for getting Schema of our Dataset -->
-
-<button id="schema" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
-">Project Schema</button>
-
-<script>
+    </script>
+    
+    
+    <!-- This one is for getting Schema of our Dataset -->
+    
+    <button id="schema" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+    ">Project Schema</button>
+    
+    <script>
     document.getElementById('schema').addEventListener('click', function() {
         window.location.href = "{{ url_for('get_schema') }}";
     });
-</script>
-
-
-
-<!-- This one is for getting logs of project of our  -->
-
-<button id="project_log" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
-">Project Logs</button>
-
-<script>
+    </script>
+    
+    
+    
+    <!-- This one is for getting logs of project of our  -->
+    
+    <button id="project_log" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+    ">Project Logs</button>
+    
+    <script>
     document.getElementById('project_log').addEventListener('click', function() {
         window.location.href = "{{ url_for('show_logs') }}";
     });
-</script>
-
-
-<a href="https://ineuron.ai/" target="_blank">I Neurone (My Course)</a>
- 
-</div>
-
-
-
-
- 
-
-
-
-
+    </script>
+    
+    
+    
+    <a href="https://ineuron.ai/" style="background-color: #333; color: #fff; border: none; padding: 10px; margin-top: 10px; font-size: 16px; cursor: pointer;
+    " target="_blank" id="anchor">I Neurone (My Course)</a>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
         
-
+    
         <style>
             /* CSS for the hover effect on the button */
             #DatadriftReport:hover {
@@ -250,39 +269,63 @@
             #DataAnalysisTransformed:hover {
                 background-color: #007BFF !important; /* Change the background color on hover */
             }
-
+    
             #project_input:hover {
                 background-color: #007BFF !important; /* Change the background color on hover */
             }
-
+    
             #project_log:hover {
                 background-color: #007BFF !important; /* Change the background color on hover */
             }
-
-
-
+    
+    
+    
             #all_model_info:hover {
                 background-color: #007BFF !important; /* Change the background color on hover */
             }
-
+    
             #best_model_info:hover {
                 background-color: #007BFF !important; /* Change the background color on hover */
             }
-
+    
             #Artifacts:hover {
                 background-color: #007BFF !important; /* Change the background color on hover */
             }
-
+    
             #schema:hover {
                 background-color: #007BFF !important; /* Change the background color on hover */
             }
-
+    
         
             #configuration:hover {
                 background-color: #007BFF !important; /* Change the background color on hover */
             }
+    
+            #anchor:hover {
+                    background-color: #007BFF !important; /* Change the background color on hover */
+                }
+    
+            #PCA:hover {
+                    background-color: #007BFF !important; /* Change the background color on hover */
+                }
+    
+    
+                #all_model_info_classi:hover {
+                    background-color: #007BFF !important; /* Change the background color on hover */
+                }
+    
+                #all_model_info_reg:hover {
+                    background-color: #007BFF !important; /* Change the background color on hover */
+                }
+                #classi_best_model_info:hover {
+                    background-color: #007BFF !important; /* Change the background color on hover */
+                }
+                #reg_best_model_info_reg:hover {
+                    background-color: #007BFF !important; /* Change the background color on hover */
+                }
+            </style>
         </style>
-
+ 
 
 
 

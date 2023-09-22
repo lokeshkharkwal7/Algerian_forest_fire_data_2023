@@ -134,6 +134,7 @@ class data_ingestion_component:
 
 
     def data_cleaning(self):
+     try:
 
               # Cleaning the data :
 
@@ -145,6 +146,8 @@ class data_ingestion_component:
 
 
         # Filetering dataframe 
+
+        logging.info('Cleaning the data')
 
         index_to_remove = []
 
@@ -215,13 +218,18 @@ class data_ingestion_component:
                 
         df_no_outliers_ = data[~outlier_mask]
         df_no_outliers_ = pd.DataFrame(df_no_outliers_, columns = data.columns)
+        logging.info('Data Cleaned , Outlier removed , Null value handled successfully')
           
         return df_no_outliers_
+     except Exception as e:
+        raise ForestFireException(e, sys) from e
 
 
     def reg_classi_splitting_data_saving_to_dir(self):
 
         try:
+            logging.info('Generating different datasets for both Classification and Regression')
+            logging.info('Splitting the data into both train and test data sets')
 
             data_final = self.data_cleaning()
             data_final = pd.DataFrame(data_final)
@@ -237,8 +245,7 @@ class data_ingestion_component:
 
             # creating a seprate folder to store training and testing files
 
-            logging.info('Seperating Training and Testing Data')
-
+ 
             os.makedirs(ingestion_config.get_reg_train_test_data_dir(), exist_ok=True)
 
             os.makedirs(ingestion_config.get_reg_train_data_dir(), exist_ok=True)
@@ -328,7 +335,7 @@ class data_ingestion_component:
 
             classi_X_test.to_csv( classi_X_test_input_location)
             classi_y_test.to_csv(classi_Y_test_input_location)
-            logging.info('Training and testing data seperated successfully for Regression')
+            logging.info('Training and testing data seperated successfully for Classification')
 
 
 

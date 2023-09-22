@@ -11,6 +11,7 @@ class main_pipeline:
     def __init__(self):
         pass
     def initiate_pipeline(self):
+     try:
 
         # Initate Data Ingestion
 
@@ -37,10 +38,12 @@ class main_pipeline:
         pusher = model_pusher(selection_output)
         output_pusher = pusher.get_best_model()
         print(output_pusher)
+     except Exception as e:
+        raise ForestFireException(e,sys) from e 
 
-'''
  
+'''
         # Initiate Model Pusher
 object = main_pipeline()
 print(object.initiate_pipeline())
-'''
+ '''

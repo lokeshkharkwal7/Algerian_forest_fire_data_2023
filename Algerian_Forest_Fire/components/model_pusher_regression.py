@@ -36,7 +36,7 @@ class model_pusher:
 
         try:
 
-            logging.info('Selecting Best Model')
+            logging.info('Selecting Best Model for Regression')
 
 
             # getting the score training from the output list
@@ -163,6 +163,7 @@ class model_pusher:
 ######################## FOR CLASSIFICATION #########################################################
                     # getting the score training from the output list
         try:
+            logging.info('Selecting Best Model for Classification')
             score_training = self.REG_output_list[8] 
             best_model_loc = (score_training.index(max (score_training)))
             best_pickle_file_loc = self.REG_output_list[11][best_model_loc]
@@ -277,8 +278,8 @@ class model_pusher:
                 logging.info(status)
 
         except Exception as e:
-            raise ForestFireException(e, sys) from e    
-        return status 
+            raise ForestFireException(e, sys) from e 
+        logging.info('Pipeling completed Successfully')   
         print('Pipeline completed succesfully')
 
          

@@ -1,5 +1,5 @@
 import pickle
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, send_from_directory
 import numpy as np
 import os,sys
 import pandas as pd
@@ -12,7 +12,7 @@ from utility.util import *
 # adding additional form to the form input ( project input.html)
 # updating its output functions of the data  
  
-app = Flask(__name__)
+app = Flask(__name__, static_folder = 'static')
 
 # Open our pickle file in which model information is stored.
 try:
@@ -202,7 +202,7 @@ def opening_artifact():
         # Get the absolute path of the requested directory
         current_directory = os.path.dirname(os.path.abspath(__file__))
         directory_absolute_path = os.path.join(current_directory, directory)
-
+ 
         # Ensure the requested directory is within the root directory
         if not directory_absolute_path.startswith(os.path.join(current_directory, root_directory)):
             return "Access denied."
@@ -244,15 +244,31 @@ def view_file(file_path):
 # reading config files for the best model selected:
 
 
-@app.route('/display_text_file')
-def display_text_file():
+@app.route('/display_text_file_reg')
+def display_text_file_reg():
     try:
         # Read the content of the text file
         with open('Reg_model_status.yaml', 'r') as file:
             text_content = file.read()
 
         # Render the content in an HTML template
-        return render_template('model_status.html', text_content=text_content)
+        return render_template('model_status_reg.html', text_content=text_content)
+    except Exception as e:
+            raise ForestFireException(e, sys) from e
+
+
+# For classification 
+
+
+@app.route('/display_text_file_classi')
+def display_text_file_classi():
+    try:
+        # Read the content of the text file
+        with open('Classi_model_status.yaml', 'r') as file:
+            text_content = file.read()
+
+        # Render the content in an HTML template
+        return render_template('model_status_classi.html', text_content=text_content)
     except Exception as e:
             raise ForestFireException(e, sys) from e
 
@@ -261,15 +277,28 @@ def display_text_file():
 # reading config files for models and its parameters:
 
 
-@app.route('/models_used')
-def models_used():
+@app.route('/reg_models_used')
+def reg_models_used():
     # Read the content of the text file
     try:
         with open('model_regression.yaml', 'r') as file:
             text_content = file.read()
 
         # Render the content in an HTML template
-        return render_template('all_models.html', text_content=text_content)
+        return render_template('all_models_reg.html', text_content=text_content)
+    except Exception as e:
+            raise ForestFireException(e, sys) from e
+
+
+@app.route('/classi_models_used')
+def classi_models_used():
+    # Read the content of the text file
+    try:
+        with open('model_classification.yaml', 'r') as file:
+            text_content = file.read()
+
+        # Render the content in an HTML template
+        return render_template('all_models_classi.html', text_content=text_content)
     except Exception as e:
             raise ForestFireException(e, sys) from e
 
@@ -301,6 +330,24 @@ def get_schema():
     except Exception as e:
             raise ForestFireException(e, sys) from e
 
+# Add this route to your existing Flask app
+@app.route('/show_image')
+def show_image():
+    # Define the filename of the image you want to display (replace 'your_image.jpg' with the actual filename)
+    image_filename = 'PCA.png'
+    
+  
+    try:
+        # Use send_from_directory to serve the image
+        return send_from_directory('PCA', image_filename)
+
+        
+    except FileNotFoundError:
+        return "Image not found", 404
+ 
+@app.route('/pca', methods=['GET'])
+def pca():
+    return render_template('show_image.html')
  
 
 if __name__ == '__main__':

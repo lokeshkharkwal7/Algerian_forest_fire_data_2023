@@ -44,7 +44,7 @@ class model_selection:
 
         try:
 
-            logging.info('Initiating model Selection')
+            logging.info('Initiating model Selection for Regression')
 
             # Initiating values/buckets:
             reg_model_performance_test = []
@@ -99,6 +99,7 @@ class model_selection:
             model_data_information = model_data['models']
 
             logging.info(f'Taking all models and there information from the config file\n {model_data_information}')
+            logging.info('Testing the performance of all of the models for Regression from the above directory')
 
             
 
@@ -185,6 +186,7 @@ class model_selection:
             except Exception as e:
                 raise ForestFireException(e, sys) from e               
         print(f'Testing Score for the models are {reg_model_performance_test}')
+        logging.info('Models successfully tested for regression')
 
  
     
@@ -192,7 +194,7 @@ class model_selection:
 
         try:
 
-            logging.info('Initiating model Selection')
+            logging.info('Initiating model Selection for Classification')
 
             # Initiating values/buckets:
             classi_model_performance_test = []
@@ -248,6 +250,7 @@ class model_selection:
             model_data_information = model_data['models']
 
             logging.info(f'Taking all models and there information from the config file\n {model_data_information}')
+            logging.info("Testing the model performance of the given Models")
 
             
 
@@ -269,7 +272,6 @@ class model_selection:
         for i in model_data_information:
 
             try:
-                print('Please check the value opijdfalsjdf;l')
                 print(split_x_train.info())
                 model_imfo = i
                 model_name = model_imfo['name']
@@ -337,7 +339,7 @@ class model_selection:
         classi_model_name=classi_model_name_ , classi_respective_parameters=classi_respective_parameters_,
         classi_score_training=classi_score_training_,classi_fitting_status=classi_fitting_status_,classi_module_address=classi_module_address,classi_pickle_storage_loc = classi_pickle_storage)
 
-        logging.info(f'Model Selection Completed \n Information: {model_selection_output}')
+        logging.info(f'Model Selection Completed \n Model Information: {model_selection_output}')
         return model_selection_output
 
 '''

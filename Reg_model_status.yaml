@@ -1,89 +1,27 @@
 Best Model:
-  Model_name: GradientBoostingRegressor
-  Model_score: 0.6986570992323928
-  Pickle_Location: C:\Users\Lokesh\Desktop\Algerian_forest_fire_data_2023\MODEL_CONTAINER_REGRESSION\2023-20-09_21-02-52\GradientBoostingRegressor.pkl
+  Model_name: RandomForestRegressor
+  Model_score: 0.6702363623907625
+  Pickle_Location: C:\Users\Lokesh\Desktop\Algerian_forest_fire_data_2023\MODEL_CONTAINER_REGRESSION\2023-22-09_19-42-10\RandomForestRegressor.pkl
   best_model_parameters: &id001
-    learning_rate: 0.1
+    max_depth: 10
+    min_samples_leaf: 1
     n_estimators: 200
-Model20_09_02_13_11_:
-  Model_name: GradientBoostingRegressor
-  Model_score: 0.6932238692553843
-  Pickle_Location: C:\Users\Lokesh\Desktop\Algerian_forest_fire_data_2023\MODEL_CONTAINER_REGRESSION\2023-20-09_02-11-12\GradientBoostingRegressor.pkl
-  best_model_parameters:
-    learning_rate: 0.1
-    n_estimators: 200
-Model20_09_12_24_47_:
-  Model_name: GradientBoostingRegressor
-  Model_score: 0.6908167422741847
-  Pickle_Location: C:\Users\Lokesh\Desktop\Algerian_forest_fire_data_2023\MODEL_CONTAINER_REGRESSION\2023-20-09_12-23-27\GradientBoostingRegressor.pkl
-  best_model_parameters:
-    learning_rate: 0.1
-    n_estimators: 200
-Model20_09_12_50_21_:
-  Model_name: GradientBoostingRegressor
-  Model_score: 0.6895093974808506
-  Pickle_Location: C:\Users\Lokesh\Desktop\Algerian_forest_fire_data_2023\MODEL_CONTAINER_REGRESSION\2023-20-09_12-49-05\GradientBoostingRegressor.pkl
-  best_model_parameters:
-    learning_rate: 0.1
-    n_estimators: 200
-Model20_09_12_53_45_:
-  Model_name: GradientBoostingRegressor
-  Model_score: 0.6884362459982443
-  Pickle_Location: C:\Users\Lokesh\Desktop\Algerian_forest_fire_data_2023\MODEL_CONTAINER_REGRESSION\2023-20-09_12-52-29\GradientBoostingRegressor.pkl
-  best_model_parameters:
-    learning_rate: 0.1
-    n_estimators: 200
-Model20_09_13_06_43_:
-  Model_name: GradientBoostingRegressor
-  Model_score: 0.689846277744731
-  Pickle_Location: C:\Users\Lokesh\Desktop\Algerian_forest_fire_data_2023\MODEL_CONTAINER_REGRESSION\2023-20-09_13-05-29\GradientBoostingRegressor.pkl
-  best_model_parameters:
-    learning_rate: 0.1
-    n_estimators: 200
-Model20_09_13_42_57_:
-  Model_name: GradientBoostingRegressor
-  Model_score: 0.6796690175163579
-  Pickle_Location: C:\Users\Lokesh\Desktop\Algerian_forest_fire_data_2023\MODEL_CONTAINER_REGRESSION\2023-20-09_13-41-37\GradientBoostingRegressor.pkl
-  best_model_parameters:
-    learning_rate: 0.1
-    n_estimators: 100
-Model20_09_21_02_49_:
-  Model_name: GradientBoostingRegressor
-  Model_score: 0.691326061918861
-  Pickle_Location: C:\Users\Lokesh\Desktop\Algerian_forest_fire_data_2023\MODEL_CONTAINER_REGRESSION\2023-20-09_21-01-08\GradientBoostingRegressor.pkl
-  best_model_parameters:
-    learning_rate: 0.1
-    n_estimators: 200
-Model20_09_21_04_33_:
-  Model_name: GradientBoostingRegressor
-  Model_score: 0.6986570992323928
-  Pickle_Location: C:\Users\Lokesh\Desktop\Algerian_forest_fire_data_2023\MODEL_CONTAINER_REGRESSION\2023-20-09_21-02-52\GradientBoostingRegressor.pkl
+Model22_09_19_44_18_:
+  Model_name: RandomForestRegressor
+  Model_score: 0.6702363623907625
+  Pickle_Location: C:\Users\Lokesh\Desktop\Algerian_forest_fire_data_2023\MODEL_CONTAINER_REGRESSION\2023-22-09_19-42-10\RandomForestRegressor.pkl
   best_model_parameters: *id001
-Model20_09_21_06_55_:
+Model22_09_19_47_13_:
   Model_name: GradientBoostingRegressor
-  Model_score: 0.6854346376112006
-  Pickle_Location: C:\Users\Lokesh\Desktop\Algerian_forest_fire_data_2023\MODEL_CONTAINER_REGRESSION\2023-20-09_21-05-04\GradientBoostingRegressor.pkl
+  Model_score: 0.6647910718671577
+  Pickle_Location: C:\Users\Lokesh\Desktop\Algerian_forest_fire_data_2023\MODEL_CONTAINER_REGRESSION\2023-22-09_19-45-06\GradientBoostingRegressor.pkl
   best_model_parameters:
     learning_rate: 0.1
     n_estimators: 200
-Model20_09_21_10_46_:
+Model22_09_19_49_22_:
   Model_name: GradientBoostingRegressor
-  Model_score: 0.6928585581330615
-  Pickle_Location: C:\Users\Lokesh\Desktop\Algerian_forest_fire_data_2023\MODEL_CONTAINER_REGRESSION\2023-20-09_21-06-57\GradientBoostingRegressor.pkl
-  best_model_parameters:
-    learning_rate: 0.1
-    n_estimators: 200
-Model20_09_22_23_05_:
-  Model_name: GradientBoostingRegressor
-  Model_score: 0.6833688487473781
-  Pickle_Location: C:\Users\Lokesh\Desktop\Algerian_forest_fire_data_2023\MODEL_CONTAINER_REGRESSION\2023-20-09_22-21-03\GradientBoostingRegressor.pkl
-  best_model_parameters:
-    learning_rate: 0.1
-    n_estimators: 200
-Model20_09_22_33_42_:
-  Model_name: GradientBoostingRegressor
-  Model_score: 0.691214801450398
-  Pickle_Location: C:\Users\Lokesh\Desktop\Algerian_forest_fire_data_2023\MODEL_CONTAINER_REGRESSION\2023-20-09_22-30-19\GradientBoostingRegressor.pkl
+  Model_score: 0.6679085365563396
+  Pickle_Location: C:\Users\Lokesh\Desktop\Algerian_forest_fire_data_2023\MODEL_CONTAINER_REGRESSION\2023-22-09_19-47-16\GradientBoostingRegressor.pkl
   best_model_parameters:
     learning_rate: 0.1
     n_estimators: 200
