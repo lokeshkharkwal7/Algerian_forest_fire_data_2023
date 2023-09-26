@@ -2,6 +2,10 @@
  The project is a ML pipeline combining regression and classification to predict/prevent Algeria's forest fires. It follows CI/CD/CT principles,ensuring an up-to-date, effective model 
 and contains all the components including Data Ingestion , Data validation, Data Transformation , Model Building and Model Selection . It features a front-end app for data visualization, results, and insights.
 
+Project Structure:
+
+![a-1](https://github.com/lokeshkharkwal7/Algerian_forest_fire_data_2023/assets/115694554/b214ccd4-e4e0-4902-b112-3670ed91958d)
+
 
 Visual and Screenshots of each individual component:
 
