@@ -4,8 +4,7 @@ and contains all the components including Data Ingestion , Data validation, Data
 
 Project Structure:
 
-![a-1](https://github.com/lokeshkharkwal7/Algerian_forest_fire_data_2023/assets/115694554/b214ccd4-e4e0-4902-b112-3670ed91958d)
-
+![dfgdfd-1](https://github.com/lokeshkharkwal7/Algerian_forest_fire_data_2023/assets/115694554/ebb8a162-afaf-40a3-9587-8bebb562a9e9)
 
 Visual and Screenshots of each individual component:
 
