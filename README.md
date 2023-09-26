@@ -3,8 +3,7 @@
 and contains all the components including Data Ingestion , Data validation, Data Transformation , Model Building and Model Selection . It features a front-end app for data visualization, results, and insights.
 
 Project Structure:
-
-![dfgdfd-1](https://github.com/lokeshkharkwal7/Algerian_forest_fire_data_2023/assets/115694554/ebb8a162-afaf-40a3-9587-8bebb562a9e9)
+![hlkhkjh-1](https://github.com/lokeshkharkwal7/Algerian_forest_fire_data_2023/assets/115694554/8713143d-ef62-4fc3-9900-6a2ae478d843)
 
 Visual and Screenshots of each individual component:
 
